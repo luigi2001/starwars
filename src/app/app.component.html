@@ -1,0 +1,33 @@
+<div class="fade">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/1200px-Star_Wars_Logo.svg.png" alt="">
+</div>
+<button *ngIf="boolnext1" type="button" (click)="Next()">Avanti</button>
+<button *ngIf="boolnext2" type="button" (click)="Next2()">Avanti</button>
+<button type="button" (click)="Personaggi()">Personaggi</button>
+<button type="button" (click)="Film()">Film</button>
+<button type="button" (click)="Astronavi()">Astronavi</button>
+<input class="form-control" type="text" placeholder="inserisci nome" [(ngModel)]="nome">
+<button type="button" (click)="Cerca()">Cerca</button>
+<p>{{birtday}}</p>
+<section class="star-wars">
+  <div *ngIf="personaggibool" class="crawl">
+    <div *ngFor="let res of personaggi.results" class="title">
+        <h1>{{res.name}}</h1>
+    </div>
+  </div>
+  <div *ngIf="filmsbool" class="crawl">
+    <div *ngFor="let res of films.results" class="title">
+        <h1>{{res.title}}</h1>
+    </div>
+  </div>
+  <div *ngIf="astronavibool" class="crawl">
+    <div *ngFor="let res of astronavi.results" class="title">
+        <h1>{{res.name}}</h1>
+    </div>
+  </div>
+  <div *ngIf="astronavi.length == 0 && films.length == 0 && personaggi.length == 0" class="crawl">
+    <div class="title">
+        <h1>Clicca su un pulsante per proseguire!!!</h1>
+    </div>
+  </div>
+</section>
